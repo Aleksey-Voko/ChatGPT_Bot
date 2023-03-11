@@ -1,5 +1,9 @@
 import os
 
+from dotenv import load_dotenv
+
+
+load_dotenv()  # TODO: for debug
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
@@ -14,6 +18,7 @@ WEBAPP_PORT = os.getenv('PORT', default=8000)
 
 WORKS_CHATS = [
     os.getenv('VCHAT_ID'),
+    os.getenv('SCHAT_ID'),
 ]
 
 # AI
