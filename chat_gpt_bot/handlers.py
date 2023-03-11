@@ -27,7 +27,6 @@ def get_ai_answer(question):
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
 async def text_reply(message: types.Message):
     if str(message.chat.id) in WORKS_CHATS:
-        if message.text.startswith('+'):
-            await message.answer(get_ai_answer(message.text))
+        await message.answer(get_ai_answer(message.text))
     else:
         await message.answer('Invalid chat ID')
