@@ -16,6 +16,7 @@ WORKS_CHATS = [
     os.getenv('ACHAT_ID'),
     os.getenv('VCHAT_ID'),
     os.getenv('SCHAT_ID'),
+    os.getenv('MCHAT_ID'),
 ]
 
 # AI
