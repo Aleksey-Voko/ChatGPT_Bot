@@ -3,9 +3,8 @@ import os
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
-RAILWAY_APP_NAME = os.getenv('RAILWAY_APP_NAME')
-
-WEBHOOK_HOST = f'https://{RAILWAY_APP_NAME}.railway.app'
+DOMAIN = os.getenv('DOMAIN')
+WEBHOOK_HOST = f'https://{DOMAIN}'
 WEBHOOK_PATH = f'/webhook/{BOT_TOKEN}'
 WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 
