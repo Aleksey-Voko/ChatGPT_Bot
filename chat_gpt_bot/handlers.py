@@ -1,9 +1,7 @@
 import openai
 from aiogram import types
 
-from chat_gpt_bot.config import (WORKS_CHATS, MODEL, TEMPERATURE, MAX_TOKENS,
-                                 TOP_P, FREQUENCY_PENALTY, PRESENCE_PENALTY,
-                                 AI_KEY)
+from chat_gpt_bot.config import WORKS_CHATS, MODEL, AI_KEY
 from chat_gpt_bot.dispatcher import dp
 
 
@@ -11,17 +9,14 @@ openai.api_key = AI_KEY
 
 
 def get_ai_answer(question):
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
         model=MODEL,
-        prompt=question,
-        temperature=TEMPERATURE,
-        max_tokens=MAX_TOKENS,
-        top_p=TOP_P,
-        frequency_penalty=FREQUENCY_PENALTY,
-        presence_penalty=PRESENCE_PENALTY,
+        messages=[
+            {"role": "user", "content": question},
+        ]
     )
 
-    return response['choices'][0]['text']
+    return response['choices'][0]['message']['content']
 
 
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
